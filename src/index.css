@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #2B2118;
+    color: #2C221B;
+    overflow-x: hidden;
+  }
+}
+
+/* Latar Lukisan Meja Kayu & Jendela Studio Ghibli (/foto/ghibli-bg.jpg) */
+.desk-canvas {
+  background-color: #2B2118;
+  background-image:
+    radial-gradient(circle at 50% 45%, rgba(255, 244, 214, 0.08) 0%, rgba(28, 20, 14, 0.42) 100%),
+    url('/foto/ghibli-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Sampul Buku Dongeng Klasik Studio Ghibli (Crimson-Chestnut Cloth & Gold Foil, ala buku Baron di Whisper of the Heart) */
+.hardcover-surface {
+  background:
+    radial-gradient(circle at 35% 25%, rgba(148, 64, 52, 0.35) 0%, transparent 60%),
+    linear-gradient(145deg, #5E2822 0%, #4A1E19 55%, #381511 100%);
+  box-shadow:
+    0 28px 55px -10px rgba(20, 12, 8, 0.78),
+    0 12px 26px -6px rgba(20, 12, 8, 0.6),
+    inset 0 1px 0 rgba(242, 212, 148, 0.35),
+    inset 0 0 40px rgba(24, 8, 6, 0.65);
+}
+
+/* Punggung Buku Kulit Klasik */
+.book-spine-strip {
+  background: linear-gradient(
+    90deg,
+    #260E0B 0%,
+    #4D201A 35%,
+    #5C2822 50%,
+    #3F1914 75%,
+    #220C09 100%
+  );
+  box-shadow:
+    inset -3px 0 8px rgba(0, 0, 0, 0.6),
+    inset 3px 0 6px rgba(242, 212, 148, 0.18);
+}
+
+/* Kertas Buku Sketsa Cat Air (Ghibli Watercolor Sketchbook Paper) - Halaman Kiri */
+.journal-page-left {
+  background-color: #FBF6E9;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 252, 242, 0.7) 0%, transparent 60%),
+    linear-gradient(90deg, rgba(168, 142, 108, 0.16) 0%, rgba(251, 246, 233, 0) 10%, rgba(251, 246, 233, 0) 88%, rgba(72, 52, 36, 0.18) 100%);
+  box-shadow:
+    inset -18px 0 28px -12px rgba(68, 48, 32, 0.2),
+    inset 4px 0 0 #E4D9C3,
+    inset 7px 0 0 #F8F2E2,
+    inset 10px 0 0 #D5C8AE;
+}
+
+/* Kertas Buku Sketsa Cat Air (Ghibli Watercolor Sketchbook Paper) - Halaman Kanan */
+.journal-page-right {
+  background-color: #FBF6E9;
+  background-image:
+    radial-gradient(circle at 80% 25%, rgba(255, 252, 242, 0.7) 0%, transparent 60%),
+    linear-gradient(90deg, rgba(72, 52, 36, 0.18) 0%, rgba(251, 246, 233, 0) 12%, rgba(251, 246, 233, 0) 90%, rgba(168, 142, 108, 0.16) 100%);
+  box-shadow:
+    inset 18px 0 28px -12px rgba(68, 48, 32, 0.2),
+    inset -4px 0 0 #E4D9C3,
+    inset -7px 0 0 #F8F2E2,
+    inset -10px 0 0 #D5C8AE;
+}
+
+/* Selotip Kertas Lukis (Masking Tape Buku Sketsa) */
+.washi-tape {
+  background: rgba(240, 222, 178, 0.82);
+  border-left: 1.5px dashed rgba(168, 140, 90, 0.45);
+  border-right: 1.5px dashed rgba(168, 140, 90, 0.45);
+  box-shadow: 0 2px 4px rgba(48, 34, 22, 0.12);
+}
+
+.washi-tape-sage {
+  background: rgba(182, 204, 174, 0.82);
+  border-left: 1.5px dashed rgba(104, 134, 96, 0.45);
+  border-right: 1.5px dashed rgba(104, 134, 96, 0.45);
+  box-shadow: 0 2px 4px rgba(48, 34, 22, 0.12);
+}
+
+.washi-tape-rose {
+  background: rgba(232, 186, 174, 0.82);
+  border-left: 1.5px dashed rgba(168, 110, 98, 0.45);
+  border-right: 1.5px dashed rgba(168, 110, 98, 0.45);
+  box-shadow: 0 2px 4px rgba(48, 34, 22, 0.12);
+}
+
+/* Bingkai Lukisan Cat Air (Watercolor Photo Mount) & 3D Flip Polaroid */
+.polaroid-card {
+  background: #FFFDF7;
+  box-shadow:
+    0 8px 20px -6px rgba(48, 34, 22, 0.24),
+    0 2px 6px -1px rgba(48, 34, 22, 0.12),
+    inset 0 0 0 1px rgba(206, 192, 166, 0.75);
+}
+
+.polaroid-3d-scene {
+  perspective: 1200px;
+}
+
+.polaroid-3d-inner {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition:
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.polaroid-3d-scene:hover .polaroid-3d-inner:not(.is-flipped) {
+  transform: rotateY(-10deg) translateY(-2px);
+}
+
+.polaroid-3d-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.polaroid-3d-scene:hover .polaroid-3d-inner.is-flipped {
+  transform: rotateY(170deg) translateY(-2px);
+}
+
+.polaroid-face-front {
+  position: relative;
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: rotateY(0deg) translateZ(1px);
+}
+
+.polaroid-face-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+/* Potongan Kertas Catatan Buku Harian */
+.kraft-note {
+  background: linear-gradient(135deg, #F4EBD6 0%, #EDE0C4 100%);
+  border: 1px solid #D4C29E;
+  box-shadow:
+    2px 4px 10px rgba(52, 36, 22, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================================
+   ENGINE 3D FLIPBOOK FISIK (REAL 3D PAGE TURNING)
+   ============================================================================ */
+.book-stage-perspective {
+  perspective: 2400px;
+}
+
+.book-3d-wrapper {
+  transform-style: preserve-3d;
+  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.book-sheet {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.sheet-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.sheet-face-front {
+  transform: rotateY(0deg);
+  border-radius: 3px 14px 14px 3px;
+}
+
+.sheet-face-back {
+  transform: rotateY(180deg);
+  border-radius: 14px 3px 3px 14px;
+}
+
+.sheet-face-front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(38, 24, 14, 0.22) 0%,
+    rgba(38, 24, 14, 0.04) 10%,
+    transparent 28%
+  );
+}
+
+.sheet-face-back::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    270deg,
+    rgba(38, 24, 14, 0.22) 0%,
+    rgba(38, 24, 14, 0.04) 10%,
+    transparent 28%
+  );
+}
+
+.book-sheet:not(.sheet-flipped):hover {
+  transform: rotateY(-8deg);
+}
+
+.book-sheet.sheet-flipped:hover {
+  transform: rotateY(-172deg);
+}
+
+/* Papan Hardcover Bawah Kiri & Kanan */
+.book-base-left {
+  background: linear-gradient(145deg, #4E201B 0%, #361410 100%);
+  border: 2px solid #753830;
+  border-right: none;
+  border-radius: 16px 0 0 16px;
+  box-shadow: -14px 26px 38px rgba(18, 10, 6, 0.72);
+}
+
+.book-base-right {
+  background: linear-gradient(145deg, #4E201B 0%, #361410 100%);
+  border: 2px solid #753830;
+  border-left: none;
+  border-radius: 0 16px 16px 0;
+  box-shadow: 14px 26px 38px rgba(18, 10, 6, 0.72);
+}
+
+/* ============================================================================
+   ANIMASI LOADING PEMBUKA & TRANSISI MASUK BUKU
+   ============================================================================ */
+@keyframes introFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes introLineExpand {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes bookEnterStage {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-intro-fade-1 {
+  animation: introFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-intro-fade-2 {
+  opacity: 0;
+  animation: introFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+}
+
+.animate-intro-fade-3 {
+  opacity: 0;
+  animation: introFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+
+.animate-intro-progress {
+  animation: introLineExpand 2.4s cubic-bezier(0.32, 0.72, 0.24, 1) forwards;
+}
+
+.animate-book-enter {
+  animation: bookEnterStage 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
